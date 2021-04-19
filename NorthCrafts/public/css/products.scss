@@ -1,0 +1,218 @@
+body, html {
+    height: 100%;
+}
+
+.products {
+    color: #B24C4C;
+    font-size: 50px;
+    padding: 10px;
+    padding-left: 20px;
+    background-color: #F8EEE7;
+}
+
+.products-header {
+    /*font-family: 'Dancing Script', cursive;
+    color: black;
+    font-size: 50px;
+    padding: 10px;
+    padding-left: 20px;
+    background-color: #F8EEE7;*/
+    font-family: 'Cinzel Decorative', cursive;
+  color: black;
+  font-size: 40px;
+  padding: 11px;
+  background-color: #F8EEE7;
+  text-align: center;
+  position: relative;
+}
+
+.products-header:before {
+  background-color: #282828;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.products-header:after {
+  background-color: #282828;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+main {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-gap: 2rem;
+    padding: 25px 20px;
+    padding-bottom: 30px;
+    background-color: #F8EEE7;
+
+    .card{
+        position: relative;
+        box-shadow: 0 20px 30px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 420px;
+        height: 290px;
+        margin: 30px 10px;
+        padding: 42px 20px;
+        transition: 0.3s ease-in-out;
+        background-color: #fff;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-10px);
+            height: 420px;
+
+            .info {
+              position: relative;
+              visibility: visible;
+              opacity: 1;
+              margin-top: -60px;
+              transition-delay: 0.3s;
+            }
+        }
+        img{
+          position: relative;
+          width: 90%;
+          max-width: 100%;
+          border-radius: 4px;
+          top: -60px;
+          left: 15px;
+        }
+
+        .info{
+            /*position: relative;*/
+            margin-top: -140px;
+            padding: 10px 15px;
+            text-align: center;
+            color: #282828;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+
+            h2{
+              font-family: 'Cinzel Decorative', cursive;
+              color: #282828
+            }
+            small{
+              font-family: 'ZCOOL XiaoWei', serif;
+              color: #282828;
+              font-size: 16px;
+              padding-bottom: 10px;
+            }
+
+        }
+    }
+}
+
+/**/
+
+/**/
+
+.add-to-chart-button {
+    margin: 10px 10px;
+    width: 20px;
+    height: 20px;
+    max-width: 100%;
+    font-size: 15px;
+    border-radius: 20%;
+    background-color: #f1f1f1; 
+    color: #B24C4C; 
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    /*border: 2px #B24C4C solid; */
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.5s ;
+    margin: 10px 10px;
+  }
+
+  .add-to-chart-button:focus {
+    outline:0;
+  }
+
+  .add-to-chart-button:hover {
+    transform: scale(1.1);
+    color: white; 
+    animation: buttonColor 0.7s 100000;
+  }
+
+  @keyframes buttonColor {
+      0% {
+        background-color: #B24C4C;
+      }
+    100% {
+      background-color: #B24C4C;
+    }
+  }
+
+  @media screen and(max-width:1024px) {
+    .add-to-chart-button {
+      width: 15%;
+      max-width: 100%;
+      font-size: 15px;
+        outline:0;
+      }
+  }
+
+  @media screen and(max-width:950px) {
+    .add-to-chart-button {
+        width: 10%;
+        max-width: 100%;
+        font-size: 15px;
+        outline:0;
+      }
+  }
+  .qunat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .plus-button{
+    width: 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 0;
+    background-color: #282828;
+    color: white;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .minus-button{
+    width: 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 0;
+    background-color: #282828;
+    color: white;
+    border-radius: 4px 0px 0px 4px;
+  }
+
+  .quant{
+    outline: none;
+    display:flex; 
+    justify-content: center; 
+    width: 100px;
+    padding: 3px 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: 2px groove #282828;
+    text-align: center;
+    font-size: 13px;
+  }

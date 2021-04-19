@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/casa.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/upload.css">
+    <title>Document</title>
+</head>
+<body>
+<nav>
+    <h2 style="color: #B24C4C;">Hi, <?php echo  $session ?></h2>
+    <div style="padding-right: 0px; padding-left: 40px" class="logo-nav">
+        <h1>North Crafts</h1>
+    </div>
+    <div>
+        <form method="post" action="/admin/signout">
+            <input style="width: 100%; " type="submit" name="signOutButton" value="Sign Out">
+        </form>
+    </div>
+</nav>
+
+<div class="center-screen" >
+    <div style="width: 400px; max-width: 100%" class="container">
+        <div class="info">
+            <strong>Admin's login form</strong><br>
+            <small>Only admin can login</small>
+        </div>
+        <br>
+        <form id="uploadForm" class="form-style" enctype="multipart/form-data" method="POST" action="/upload/uploadImage">
+            <input type="text" id="name" name="name" value="" placeholder="Image name"><br><br>
+            <input type="number" id="price" name="price" value="" placeholder="Image price"><br><br>
+            <textarea form ="uploadForm" name="taname" id="taid" cols="35" wrap="soft"></textarea>
+            <input type="file" name="file">
+            <input type="submit" name="uploadImage" value="Submit">
+        </form>
+    </div>
+ </div>
+</body>
+</html>

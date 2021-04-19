@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/casa.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/upload.css">
+    <title>Document</title>
+</head>
+<body>
+
+<nav>
+    <div style="padding-right: 0px; padding-left: 40px" class="logo-nav">
+        <a class="go-back" href="/">Back!</a>
+        <h1>North Crafts</h1>
+    </div>
+</nav>
+
+<div class="grid-container" >
+    <div class="container-information">
+        <div class="small-container">
+            <div class="smaller-container2">
+                <form class="form-style-info" enctype="multipart/form-data" method="POST" action="information/sendEmail">
+                    <input style="font-size: 20px;" type="text" id="fname" name="fname" value="" placeholder="First name" required><br><br>
+                    <input style="font-size: 20px" type="text" id="lname" name="lname" value="" placeholder="Last name" required><br><br>
+                    <input style="font-size: 20px" type="text" id="lname" name="lname" value="" placeholder="Residential address" required><br><br>
+                    <input style="font-size: 20px" type="text" id="mail" name="mail" value="" placeholder="Email address" required><br><br>
+                    <input style="font-size: 20px" type="number" id="phone" name="phone" value="" placeholder="Phone number" ><br><br>
+                    <input style="font-size: 15px" type="submit" name="sendEmail" value="Submit">
+                </form>
+            </div>
+        </div>
+        <!--<div class="info">
+            <strong>Enter your information</strong><br>
+            <small>*optional</small>
+        </div>
+        <form class="form-style" enctype="multipart/form-data" method="POST" action="information/sendEmail">
+            <input style="font-size: 20px" type="text" id="fname" name="fname" value="" placeholder="First name" required><br><br>
+            <input style="font-size: 20px" type="text" id="lname" name="lname" value="" placeholder="Last name" required><br><br>
+            <input style="font-size: 20px" type="text" id="mail" name="mail" value="" placeholder="Email address" required><br><br>
+            <input style="font-size: 20px" type="number" id="phone" name="phone" value="" placeholder="Phone number*" ><br><br>
+            <input style="font-size: 15px" type="submit" name="sendEmail" value="Submit">
+        </form>-->
+    </div>
+
+    <div class="products-info"><?php $products = Session::get('shopping_cart');
+      $totalPrice = 0;
+      foreach($products as $product) {
+        echo'<form style="padding: 0; display: flex;
+        justify-content: space-around;
+        align-items: center;"method="POST" action="index/removeFromChart">
+        <div class="one-item">
+          <img style=" width: 20%;" src="img/sky.jpg" alt="">
+          <li style="list-style: none;">'.$product['pubName'].'</li>
+          <p style="font-weight: bold; margin-right: 5px"> x'.$product['quantity'].'</p>
+          <p style="font-weight: bold; margin-right: 5px">'.$product['price'].'Kn</p>
+          <input type="hidden" name="id" value="'.$product['id'].'">
+        </div>
+        </form>';
+
+        $totalPrice = $totalPrice + $product['price'];
+      } ?>
+    </div>
+</div>
+
+</body>
+</html>

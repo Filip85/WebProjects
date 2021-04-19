@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/casa.css">
+    <title>North Crafts</title>
+</head>
+<body>
+<nav>
+    <div class="logo">
+      <a style="justify-content: space-around;" href="/index"><h1 style="justify-content: space-around;">North Crafts</h1></a>
+    </div>
+  </nav>
+
+<div class="center-screen" >
+    <div class="container">
+        <div class="info">
+            <strong style="font-size: 30px">Admin's login form</strong><br>
+            <small style="font-size: 20px">Only admin can login</small>
+        </div>
+        <br>
+        <form id="form-style" class="form-style" method="POST" action="/admin/signin">
+            <label for="fpassword" style="color: #B24C4C; font-size: 20px">Admin's password:</label><br>
+            <input type="password" id="password" name="password" value="" placeholder="Password"><br><br>
+            <input type="submit" name="signInButton" value="Submit" style="font-size: 15px">
+        </form>
+    </div>
+ </div>
+</body>
+
+<script>const navSlider = () => {
+    const hiddenNav = document.querySelector('.nav-mobile');
+    const nav = document.querySelector('.nav-links');
+    const form = document.querySelector('.center-screen');
+
+    hiddenNav.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+        form.classList.toggle('move-form');
+    });
+}
+
+navSlider();</script>
+
+
+</html>

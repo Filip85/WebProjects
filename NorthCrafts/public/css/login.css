@@ -1,0 +1,323 @@
+*{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      background-size: cover;
+    background-position:50% 50%;
+    }
+
+body {
+    background-image: url("/img/Tools.jpeg");
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    justify-content: space-around;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.info {
+    background-color: #caa472;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.info strong {
+    color: #282828;
+    font-size: 24px;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.info small {
+    color: #282828;
+    font-size: 19px;
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+.container {
+    width: 300px;
+    margin: 40px;
+    max-width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    border: 4px #caa472 solid;
+}
+
+
+/*START INFORMATION form*/
+.container-information {
+    width: 450px;
+    height: 500px;
+    margin: 40px;
+    max-width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    background-image: url("/img/leather.jpg");
+    display: flex;
+    justify-content: center;
+}
+
+.small-container{
+    position: relative;
+    top: 40px;
+    width: 380px;
+    height: 400px;
+    background-image: url("/img/stain.jpg");
+    transform: rotate(10deg);
+    border-radius: 4px;
+}
+
+.smaller-container2{
+    width: 380px;
+    height: 400px;
+    background-image: url("/img/stain.jpg");
+    transform: rotate(-10deg);
+    border-radius: 4px;
+}
+
+.form-style-info > input[type="number"], input[type="text"]{
+    width: 70%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 4px solid #602D0D;
+    color: #602D0D;
+    transition: 0.5s
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #602D0D;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:#602D0D;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:#602D0D;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:#602D0D;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:#602D0D;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:#602D0D;
+}
+/*END INFORMATION form*/
+.form-style {
+    background-color: white;
+    padding: 50px 7px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input[type="password"]{
+    width: 70%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid #F4DECB;
+    border-radius: 24px;
+    text-emphasis-color: #B24C4C;
+    transition: 0.5s;
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+/*input[type="password"]:focus{
+    width: 100%;
+    border-color: #282828;
+    outline:0;
+}*/
+
+/*input[type="number"]{
+    width: 70%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid #F4DECB;
+    border-radius: 24px;
+    text-emphasis-color: #B24C4C;
+    transition: 0.5s;
+    outline: 0;
+    font-family: 'ZCOOL XiaoWei', serif;
+}*/
+
+/*input[type="number"]:focus{
+    width: 100%;
+    border-color: #282828;
+    outline:0;
+}*/
+
+/*input[type="text"]{
+    width: 70%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid #F4DECB;
+    border-radius: 24px;
+    text-emphasis-color: #B24C4C;
+    transition: 0.5s;
+    outline: 0;
+    font-family: 'ZCOOL XiaoWei', serif;
+}*/
+
+input[type="text"]:focus{
+    width: 100%;
+    border-color: #282828;
+    outline:0;
+}
+
+input[type="submit"]{
+    width: 40%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid #602D0D;
+    border-radius: 24px;
+    text-emphasis-color: #B24C4C;
+    transition: 0.5s;
+    margin: 2px auto;
+    outline:0;
+    background-color: white;
+    color: #282828;
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+input[type="submit"]:hover {
+    background-color: #602D0D;
+    cursor: pointer;
+    color: white;
+}
+
+textarea {
+    width: 70%;
+    height: 300px;
+    border: 2px solid wheat;
+    border-radius: 24px;
+    text-emphasis-color: #B24C4C;
+    text-align: center;
+    padding: 10px;
+    resize: none;
+    outline: 0;
+    transition: 0.5s;
+}
+
+textarea:focus{
+    width: 100%;
+    border-color: #282828;
+    outline:0;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 300px;
+        max-width: 40%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        border: 2px wheat solid;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+    }
+    .container {
+        width: 300px;
+        max-width: 60%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        border: 2px wheat solid;
+        margin: 0 auto;
+    }
+
+    .products-info {
+        background-color: violet;
+        margin-top: 50px;
+        margin-right: 0;
+    }
+}
+
+
+/*Information view- > form and products info*/
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    min-height: 80vh;
+}
+
+.products-info {
+    position: relative;
+    top: -20px;
+    border-radius: 4px;
+    background-color: white;
+    width: 400px;
+    max-width: 100%;
+    text-align: start;
+    margin-right: 40px;
+}
+
+@media screen and (max-width: 900px) {
+    .products-info {
+        margin-top: 30px;
+        margin-right: 0;
+    }
+}
+
+.go-back {
+    position: absolute;
+    left: 50px;   
+    padding: 4px; 
+}
+
+@media screen and (max-width: 550px) {
+    .go-back {
+        position: absolute;
+        left: 25px;   
+        padding: 4px; 
+    }
+}
+
+/*START Info table*/
+.space {
+    margin: 30px;
+}

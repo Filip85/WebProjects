@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/casa.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>North Crafts</title>
+
+</head>
+<body>
+  <!--navbar-->
+  <nav>
+    <ul class="nav-links">
+      <!--<li><a  href="/contacts">Contacts</a></li>    
+      <li><a href="/admin">Admin</a></li>    -->
+      <a  href="/contacts">Contacts</a>
+      <a href="/admin">Admin</a>
+    </ul>
+    <div class="nav-mobile">
+      <div class="line1"></div>
+      <div class="line2"></div>
+    </div>
+    <div class="logo-nav">
+      <h1>North Crafts</h1>
+    </div>
+
+    <!--START shopping cart -->
+    <i style="color:white; cursor: pointer" class="fas fa-shopping-cart shopping-cart-button"></i>
+    <div class="shopping-cart">
+      <div id="shopping-cart-items" class="shopping-cart-items">
+      <div class="contentItem">
+      <?php $products = Session::get('shopping_cart');
+      $totalPrice = 0;
+      if(!empty($_SESSION['shopping_cart'])) {
+        foreach($products as $product) {
+          echo'<form class="itemForm" method="POST" action="index/removeFromChart">
+          <div class="one-item">
+            <img style=" width: 20%" src="img/sky.jpg" alt="">
+            <div class="fontClass">
+              <h3 style="padding-bottom: 3px; color: #282828">'.$product['pubName'].'</h3>
+              <p style="padding-bottom: 3px; color: #282828">'.$product['price'].'Kn</p>
+              <p style="padding-bottom: 3px; color: #282828">Quantity: '.$product['quantity'].'</p>
+              <input type="hidden" name="id" value="'.$product['id'].'">
+              <input type="hidden" class="quantity" name="quantity" value="'.$product['quantity'].'">
+            </div>
+            <div>
+              <button type="submit" name="removeFromChart" id="bold"><span style="color: #d9534f" class="fa fa-trash"></span></button>
+              </div>
+              </div>
+          </form>
+          ';
+  
+          $totalPrice = $totalPrice + $product['price'] * $product['quantity'];
+        }
+      }
+      else {
+        echo '<p class="empty" style="font-weight: bold; padding-top: 25px">Shopping cart is empty!</p>';
+      }
+       ?>
+       </div>
+        <div class="shopping-cart-buttons">
+          <strong id="total-value" style="color: #282828">TOTAL VALUE: <?php echo  $totalPrice.'Kn'; ?></strong>
+          <input id="value" class="value" type="hidden" name="id" value="<?php echo $totalPrice ?>">
+          <form method="POST" action="index/nextStep">
+              <input class="nextStep" style="background-color: #4CAF50; padding: 8px 20px; border: none; text-align: center; 
+              text-decoration: none; background-color: white; color: #282828; cursor: pointer; outline: 0; 
+              border-radius: 3px" type="submit" name="nextStepButton" value="NEXT STEP">
+          </form>
+        </div>
+      </div>
+      <!--END shopping cart -->
+    </div>
+  </nav>
+  <!--end of navbar-->
+
+  <!--logo section-->
+  <div class="slider">
+      <figure>
+        <img src="img/desk.png">
+        <img src="img/desk2.png">
+        <img src="img/desk.png">
+        <img src="img/desk3.png">
+        <img src="img/desk.png">
+      </figure>
+  </div>
+  <!--end of logo section-->
+
+  <!--start product section-->
+
+  <div>
+  <h4 style="padding-top: 40px" class="products-header">Products</h4>
+  <main>
+      <?php $index = 1;
+    foreach ($images as $image) { 
+      echo '<form method="POST" action="index/addToChart" onsubmit="return submitForm(this)">
+              <div class="card"> 
+                  <img style="height: 260px" src="img/'.$image['imgName'].'" alt="">
+                  <div class="info">
+                    <h2>'.$image['pubName'].'</h2>
+                    <small>'.$image['price'].'Kn</small>
+                    <p>'.$image['description'].'</p>
+                    <input type="hidden" id="imgName" class="imgName" name="imgName" value="'.$image['pubName'].'">
+                    <input type="hidden" id="price" class="price" name="price" value="'.$image['price'].'">
+                    <input type="hidden" class="id" name="id" value="'.$image['id'].'">
+                    <div class="qunat-container">
+                      <button class="minus-button" type="button" img-id="'.$image['id'].'">-</button>
+                        <input class="quant" type="number" name="quantity" value="1" img-id="'.$image['id'].'">
+                      <button class="plus-button" type="button" img-id="'.$image['id'].'">+</button>
+                      <button type="submit" class="add-to-chart-button" name="addToChart" data-name="'.$image['pubName'].'"
+                      data-price="'.$image['price'].'" data-id="'.$image['id'].'">
+                      <i class="fas fa-shopping-cart"></i></button>
+                  </div>
+                </div>
+            </div>
+        </form>';
+
+    }
+    ?>
+</main>
+<div>
+<!--end of product section-->
+
+<!--start about me-->
+<div>
+  <h4 style="padding-top: 40px" class="about-us-header"><span>About Me</span></h4>
+  <div class="about-me">
+    <img class="about-me-img" src="img/sky.jpg" alt="">
+    <article class="about-me-info">
+      <h2>Hi!</h2>
+      <p>dasdsadsa jkfakjlfjlkafj jfjdjkfdslkjfljd jfdsjfsdljfjsdk lkfsdjlkfjdslkfjksdlj kjfklsdjflksdjlkfj lk lksdjflkdsjlf dsadsadsa adsadsada as dsadsa sa sad sa dsa das dsadasdsadasdsadsadas sad sad as </p>
+    </article>
+  </div>
+<div>
+<!--end of about me-->
+
+<div>
+  <h5 style="padding-top: 40px" class="contacts-header"><span style="#fff">Social media</span></h5>
+  <div class="contact-container">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="card-icon far fa-envelope"></i></a>
+  </div>
+</div>
+
+<!--<button  id="img">Count</button>
+<div id="number">-->
+</body>
+
+<script>
+    const navSlider = () => {
+        const hiddenNav = document.querySelector('.nav-mobile');
+        const nav = document.querySelector('.nav-links');
+        const shoppingCartButton = document.querySelector('.shopping-cart-button');
+        const shoppingCart = document.querySelector('.shopping-cart');
+        const shoppingCartItems = document.querySelector('.shopping-cart-items');
+        const nextStepButton = document.querySelector('.nextStep');
+        const plusButton = document.querySelector('.plus-button');
+        const minusButton = document.querySelector('.minus-button');
+        const quant = document.querySelector('.quant');
+
+        hiddenNav.addEventListener('click', () => {
+            console.log('dsdds');
+            nav.classList.toggle('nav-active');
+        });
+        var quantity = 0;
+        document.querySelectorAll('.plus-button').forEach(function(item) {
+          item.addEventListener('click', () => {
+            var bplus = item.getAttribute('img-id');
+            document.querySelectorAll('.quant').forEach(function(item) {
+              var inputF = item.getAttribute('img-id');
+              
+              if(bplus == inputF) {
+                item.stepUp(1);
+                
+                if(item.value > 20) {
+                  item.value = 20;
+              }
+              quantity = item.value;
+              }
+          });
+        });
+      });
+ 
+      document.querySelectorAll('.minus-button').forEach(function(item) {
+          item.addEventListener('click', () => {
+            var bplus = item.getAttribute('img-id');
+            document.querySelectorAll('.quant').forEach(function(item) {
+              var inputF = item.getAttribute('img-id');
+              
+              if(bplus == inputF) {
+                item.stepDown(1);
+                
+                if(item.value < 1) {
+                  item.value = 1;
+              }
+              quantity = item.value;
+              console.log(quantity);
+              }
+          });
+        });
+      });
+
+
+        var sessionSet = '<?php echo isset($_SESSION['shopping_cart']); ?>';
+        shoppingCartButton.addEventListener('click', () => {
+            //nextStepButton.disabled = true;
+            /*if(sessionSet == "1") {
+                nextStepButton.disabled = false;
+            }*/
+            shoppingCart.classList.toggle('shopping-cart-active');
+        });
+
+        const addToCahrt = document.querySelectorAll('.add-to-chart-button');
+        [...document.querySelectorAll('.add-to-chart-button')].forEach(function(item) {
+            item.addEventListener('click', function() {
+              var imgName = item.getAttribute('data-name');
+              var price = item.getAttribute('data-price');
+              var id = item.getAttribute('data-id');
+              const cartItem = document.createElement("form");
+              cartItem.method = "post";
+              cartItem.action = "index/removeFromChart";
+              cartItem.classList.add('itemForm');
+              cartItem.innerHTML = `
+              <div class="one-item">
+                      <img style=" width: 20%" src="img/sky.jpg" alt="">
+                    <div>
+                      <h3 style="padding-bottom: 3px">${imgName}</h3>
+                       <p style="padding-bottom: 3px">${price}</p>
+                       <p style="padding-bottom: 3px">Quantity: ${quantity}</p>
+                      <input type="hidden" name="id" value="${id}">
+                      <input type="hidden" class="quantity" name="quantity" value="${quantity}">
+                    </div>
+                    <div>
+                    <button type="submit" name="removeFromChart" id="bold"><span style="color: #d9534f" class="fa fa-trash"></span></button>
+                    </div>
+                    </div>`;
+
+              const item1 = document.querySelector('.contentItem');
+              item1.insertBefore(cartItem, null);
+
+              var previousTotalValue =  document.getElementById('value').value;
+              console.log(previousTotalValue);
+              document.getElementById('value').value = (parseInt(price) * parseInt(quantity) + parseInt(previousTotalValue));
+              var nextTotalValue =  document.getElementById('value').value;
+              document.getElementById('total-value').innerHTML = "TOTAL VALUE:" + " " + (parseInt(price) * parseInt(quantity) + parseInt(previousTotalValue)) + "Kn";
+
+              
+              var p_list = document.getElementsByTagName("p");
+              for(var i=p_list.length-1; i>=0; i--){
+                  var p = p_list[i];
+                  if(p.className === "empty"){
+                      p.parentNode.removeChild(p);
+                    }
+                }
+            });
+        });
+    }
+
+    navSlider();
+</script>
+<script>
+  function submitForm(oFormElement){
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function(){ 
+      alert ("Do you want to add items to your chart?"); 
+    } 
+    xhr.onerror = function(){ 
+      alert (xhr.responseText); 
+    }
+    xhr.open (oFormElement.method, oFormElement.action, true);
+    xhr.send (new FormData (oFormElement));
+    return false;
+  }
+
+  /*function incDec() {
+    const quant = document.querySelector('.quant');
+    quant.stepUp(1);
+    if(quant.value > 20) {
+      quant.value = 20;
+    }
+  }*/
+</script>
+</html>
